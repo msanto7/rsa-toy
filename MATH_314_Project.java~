@@ -1,0 +1,102 @@
+import java.util.*;
+public class MATH_314_Project {
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    int[] cipherText = new int[100000];
+    int n;
+    int e;
+    int[] factors = new int[1000000];
+    int p;
+    int q;
+    
+    
+    //Input
+    System.out.print("Enter your public key (n, e): ");
+    n = getInt(input);
+    e = getInt(input);
+    System.out.println("Enter the cipher text as a sequence of numbers ");
+    int i = 0;
+    while (input.hasNextInt()) {
+      int temp = input.nextInt();
+      cipherText[i] = temp;
+      i++;
+      break;
+    }                               
+   // cipherText = getInt(input);
+    
+    //Factoring n to get p and q
+    factors = factor(n);
+    p = factors[0];
+    q = factors[1];
+    
+    
+    System.out.println("Your public key is: (n, e): " + "( " + n + ", " + e + ") ");
+    System.out.println("N factored is p = " + p + " q = " + q);
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  } //Ends main
+  
+  //input validation 
+  public static int getInt(Scanner input) {
+    int num;
+    while(!input.hasNextInt()) {
+      input.next();
+      System.out.print("Not an appropriate cipher, enter a integer");
+    }
+    num = input.nextInt();
+    return num;    
+  }
+  
+  //factoring
+  public static int[] factor(int num) {
+    int[] factors = new int[100000];
+    int j = 0;
+    for (int i = 2; i < num; i++) {
+      if (num % i == 0) {
+        factors[j] = i;
+       // i--;
+        j++;
+      }
+    }
+    System.out.println("p = " + factors[0] + "q = " + factors[1]);
+    return factors;
+  }
+  
+  /*/Euclidian Algorithm 
+  public static int multInverse() {
+    
+    
+  }
+  //Modular Exponentiation...repeated squaring method
+  public static int modularExpo(int num) {
+    
+    
+  }
+  
+  //Numbers to text 
+  public static char[] numToText(int[] arrayNum) {
+    
+    
+  }
+  
+  //Text to Numbers 
+  public static int[] textToNum(char[] arrayNum) {
+    
+    
+    
+  }*/
+  
+  
+  
+  
+  
+} // Ends Class
+
+
